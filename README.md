@@ -37,12 +37,12 @@ npm run dev
 ---
 
 ## Wireframes
-Substitute this image with an image of your own app wireframes or designs
-<img src='docs/wireframeHome.png' width="100" height="200" />
-<!-- >![](docs/wireframeHome.png = 200x400)
-![](docs/LogIn.png)
-![](docs/SignIn.png)
-![](docs/wireframeHomeLoged.png) -->
+
+<img src='docs/wireframeHome.png' width="150" height="250" />
+<img src='docs/LogIn.png' width="150" height="250" />
+<img src='docs/SignIn.png' width="150" height="250" />
+<img src='docs/wireframeHomeLoged' width="150" height="250" />
+
 ---
 
 ## User stories (MVP)
