@@ -38,10 +38,10 @@ npm run dev
 
 ## Wireframes
 
-<img src='docs/wireframeHome.png' width="150" height="250" />
-<img src='docs/LogIn.png' width="150" height="250" />
-<img src='docs/SignIn.png' width="150" height="250" />
-<img src='docs/wireframeHomeLoged' width="150" height="250" />
+<img src='docs/wireframeHome.png' width="120" height="250" />
+<img src='docs/LogIn.png' width="120" height="250" />
+<img src='docs/SignIn.png' width="120" height="250" />
+<img src='docs/wireframeHomeLoged.png' width="120" height="250" />
 
 ---
 
