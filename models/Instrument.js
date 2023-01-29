@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const instrumentSchema = New Schema({
+const instrumentSchema = new Schema({
     brand: {
         type: String,
         required: [true, "You must introduce your instrument's brand"]
@@ -12,11 +12,16 @@ const instrumentSchema = New Schema({
     },
     year: Number,
     madeIn: String,
+    type: String,
     description: String,
     owner:{
         type: [Schema.Types.ObjectId],
         ref: 'User'
-    }
+    },
+    image: {
+        type: String,
+        default: 'https://www.nicepng.com/png/detail/2-24003_jpg-freeuse-stock-guitar-png-for-free-download.png'
+    },
 },
     {timestamps: true
 
