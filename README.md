@@ -1,8 +1,13 @@
-# App name
+# MyTONE
+<em>The gear enthusiast suite</em>
 
 ## Description
 
-This is a project developed by XXX and YYY as the project for the second module at Ironhack. The purpose of the application is...
+MyTone is a social network for guitarists and bassists (expandable to any collectible item or hobby objects) where you can share your instruments and interact with other users and their dream gears.
+
+You can register and "upload" your instruments. Explain their details, characteristics, modifications and add some photos.
+    
+In parallel, you can interact with other users by commenting and sending "like" to the other instruments, generating a network full of reviews, photos and characteristics of guitars and basses.
 
 ---
 
@@ -34,8 +39,10 @@ npm run dev
 ## Wireframes
 Substitute this image with an image of your own app wireframes or designs
 
-![](docs/wireframes.png)
-
+![](docs/wireframeHome.png)
+![](docs/LogIn.png)
+![](docs/SignIn.png)
+![](docs/wireframeHomeLoged.png)
 ---
 
 ## User stories (MVP)
@@ -44,12 +51,20 @@ What can the user do with the app?
 - User can sign up and create and account
 - User can login
 - User can log out
-- User can create ...
+- User can create Instrument
+- User can edit Instrument
+- User can delete Instrument
+- User can send Like to other instruments
+- User can comment instruments
 
 ## User stories (Backlog)
 
 - User can upload a profile picture
-- User can ...
+- User can mark as stoled his instruments
+- User can mark as "for sale" his instruments
+- User can follow other users
+- User can chat with other users
+
 
 ---
 
