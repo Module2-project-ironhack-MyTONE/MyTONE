@@ -72,9 +72,11 @@ router.post('/login', async function (req, res, next) {
       const passwordMatch = await bcrypt.compare(password, userInDB.hashedPassword);
       if (passwordMatch) {
         req.session.currentUser = userInDB;
-        res.render('auth/profile', userInDB);
+        res.render('auth/profile', userInDB); 
+        console.log("password match") /* console.log!!!!!!!!! */
       } else {
-        res.render('auth/login', { error: 'Unable to authenticate user' });
+        res.render('auth/login', { error: 'Unable to authenticate user' }); 
+        console.log("password not match");
         return;
       }
     }

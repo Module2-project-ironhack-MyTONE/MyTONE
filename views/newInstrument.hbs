@@ -1,0 +1,20 @@
+<h2>New instrument</h2>
+
+<form method="POST" action="/Home/new">
+  <label>Brand</label>
+  <input required type="text" name="brand" placeholder="Fender"/>
+  <label>Model</label>
+  <input required type="text" name="model" placeholder="telecasters"/>
+  <label>Year</label>
+  <input required type="number" name="year" placeholder="1951"/>
+  <label>Made in...</label>
+  <input required type="text" name="madeIn" placeholder="USA"/>
+  <label>Type</label>
+  <input required type="text" name="type" placeholder="electric guitar"/>
+   <label>Guitar picture</label>
+  <input required type="text" name="image" placeholder="../docs/Icons/guitarBig.png"/>
+  <label>Description</label>
+  <textarea required name="description"></textarea>
+
+  <button type="submit">Create</button>
+</form>

@@ -12,7 +12,10 @@ const instrumentSchema = new Schema({
     },
     year: Number,
     madeIn: String,
-    type: String,
+    type: {
+        type: String,
+        enum: [],
+    },
     description: String,
     owner:{
         type: [Schema.Types.ObjectId],
