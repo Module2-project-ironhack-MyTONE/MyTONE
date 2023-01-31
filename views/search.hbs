@@ -1,7 +1,9 @@
+
+
 <h3>Results by: {{query}}</h3>
 
-{{#if show}}
-  {{>showCard show}}
+{{#if instrument}}
+  {{>instrumentCard instrument}}
   {{else}}
   <p>Sorry, no shows found by {{query}}. Try again: <a href="/shows">go back to shows</a></p>
 {{/if}}
