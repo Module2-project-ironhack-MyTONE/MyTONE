@@ -49,7 +49,7 @@ app.set('view engine', 'hbs');
 // routes intro
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/users', usersRouter); /* insertado por Rick */
+app.use('/', usersRouter); /* insertado por Rick */
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
