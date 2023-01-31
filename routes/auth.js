@@ -43,7 +43,7 @@ router.post('/signup', async function (req, res, next) {
       // const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = await bcrypt.hash(password, salt);
       const user = await User.create({ username, email, hashedPassword });
-      res.render('auth/profile', user);
+      res.render('profile', user);
     }
   } catch (error) {
     next(error)
@@ -72,8 +72,7 @@ router.post('/login', async function (req, res, next) {
       const passwordMatch = await bcrypt.compare(password, userInDB.hashedPassword);
       if (passwordMatch) {
         req.session.currentUser = userInDB;
-        res.render('auth/profile', userInDB); 
-        console.log("password match") /* console.log!!!!!!!!! */
+        res.render('profile', userInDB);
       } else {
         res.render('auth/login', { error: 'Unable to authenticate user' }); 
         console.log("password not match");

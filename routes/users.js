@@ -6,18 +6,18 @@ const User = require('../models/User');
 const isLoggedIn = require('../middlewares');
 
 /* GET users listing. */
-router.get('/auth/profile', isLoggedIn, function (req, res, next) {
+router.get('/profile', isLoggedIn, function (req, res, next) {
   const user = req.session.currentUser;
   res.render('profile', user);
 });
 
 /* GET users listing. */
-router.get('/auth/profile/edit', isLoggedIn, function (req, res, next) {
+router.get('/profile/edit', isLoggedIn, function (req, res, next) {
   const user = req.session.currentUser;
   res.render('profileEdit', user);
 });
 
-router.post('/auth/profile/edit', isLoggedIn, async function (req, res, next) {
+router.post('/profile/edit', isLoggedIn, async function (req, res, next) {
   const { username } = req.body;
   //if (!username) {
   //send error
@@ -26,7 +26,7 @@ router.post('/auth/profile/edit', isLoggedIn, async function (req, res, next) {
   try {
     const userInDB = await User.findByIdAndUpdate(user._id, { username }, { new: true });
     req.session.currentUser = userInDB;
-    res.redirect('/auth/profile');
+    res.redirect('/profile');
   } catch (error) {
     next(error);
   }

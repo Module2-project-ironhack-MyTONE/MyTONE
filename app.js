@@ -50,6 +50,7 @@ app.set('view engine', 'hbs');
 // routes intro
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/', usersRouter); /* insertado por Rick */
 app.use('/users', usersRouter); /* insertado por Rick */
 app.use('/instruments', instrumentsRouter);
 
