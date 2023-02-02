@@ -54,7 +54,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 // routes intro
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/users', usersRouter); 
+app.use('/', usersRouter); 
 app.use('/instruments', instrumentsRouter);
 
 // catch 404 and forward to error handler
