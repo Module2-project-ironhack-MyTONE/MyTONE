@@ -11,7 +11,7 @@ router.get('/new', /*isLoggedIn,*/ function (req, res, next) {
   router.post('/new', /*isLoggedIn,*/ async function (req, res, next) {
     const { brand, model, year, type, image, description } = req.body;
     try {
-      const createdInstrument = await Instrument.create({ brand, model, year, type, image, description });
+      const createdInstrument = await Instrument.create({ brand, model, year, type, image, description git });
       res.redirect(`/instrument/${createdInstrument._id}`);
     } catch (error) {
       next(error)
