@@ -1,0 +1,20 @@
+<h2>Editing instrument {{title}}</h2>
+
+<form method="POST" action="/instruments/edit/{{_id}}">
+  <label>Show's title</label>
+  <label>Brand</label>
+  <input required type="text" name="brand" value="{{brand}}"/>
+  <label>Model</label>
+  <input required type="text" name="model" value="{{model}}"/>
+  <label>Year</label>
+  <input required type="number" name="year" value="{{year}}"/>
+  <label>Made in...</label>
+  <input required type="text" name="madeIn" value="{{madeIn}}"/>
+  <label>Type</label>
+  <input required type="text" name="type" value="{{type}}"/>
+  <label>Guitar picture</label>
+  <input required type="text" name="image" value="{{image}}"/>
+  <label>Description</label>
+  <textarea required name="description">{{description}}</textarea>
+  <button type="submit">Save changes</button>
+</form>
