@@ -1,9 +1,13 @@
-
-
 <h3>Results by: {{query}}</h3>
+
+<form method="GET" action="/instruments/search"> 
+  <label>Search</label>
+  <input type="text" name="brand"/>
+  <button type="submit">Search</button>
+</form>
 
 {{#if instrument}}
   {{>instrumentCard instrument}}
   {{else}}
-  <p>Sorry, no shows found by {{query}}. Try again: <a href="/instruments">go back to shows</a></p>
+  <p>Sorry, no instruments found by {{query}}. Try again: <a href="/instruments">go back to instruments</a></p>
 {{/if}}
