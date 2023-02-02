@@ -64,7 +64,7 @@ router.get('/new', /*isLoggedIn,*/ function (req, res, next) {
     const { brand, model, year, type, image, description } = req.body;
     try {
       const createdInstrument = await Instrument.create({ brand, model, year, type, image, description });
-      res.redirect(`/instrument/${createdInstrument._id}`);
+      res.redirect(`/instruments/${createdInstrument._id}`);
     } catch (error) {
       next(error)
     }
