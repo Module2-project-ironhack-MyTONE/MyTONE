@@ -61,9 +61,9 @@ router.get('/new', /*isLoggedIn,*/ function (req, res, next) {
   });
 
   router.post('/new', /*isLoggedIn,*/ async function (req, res, next) {
-    const { brand, model, year, type, image, description } = req.body;
+    const { brand, model, year, type, madeIn, image, description } = req.body;
     try {
-      const createdInstrument = await Instrument.create({ brand, model, year, type, image, description });
+      const createdInstrument = await Instrument.create({ brand, model, year, type, madeIn, image, description });
       res.redirect(`/instruments/${createdInstrument._id}`);
     } catch (error) {
       next(error)
@@ -90,18 +90,18 @@ router.get('/new', /*isLoggedIn,*/ function (req, res, next) {
 
 /* GET one instrument */
 /* ROUTE /instrument/:instrumentId */
-/* router.get('/:instrumentId', async function (req, res, next) {
+router.get('/:instrumentId', async function (req, res, next) {
   const { instrumentId } = req.params;
   const user = req.session.currentUser;
   try {
-    const instrument = await Instrument.findById(instrumentId).populate('seasons');
-    const reviews = await Review.find({ instrument: instrumentId });
-    res.render('detail', { show, reviews, user });
+    const instrument = await Instrument.findById(instrumentId);
+    /*const reviews = await Review.find({ instrument: instrumentId }); */
+    res.render('detail', { instrument /*, reviews, , user */  });
   } catch (error) {
     next(error)
   }
 });
-*/
+
   
 
 module.exports = router;
