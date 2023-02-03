@@ -72,21 +72,21 @@ router.get('/new', /*isLoggedIn,*/ function (req, res, next) {
 
 
 
-  /* GET delete instrument */
+/* GET delete instrument */
 /* ROUTE /instruments/delete/:id */
-/* router.get('/delete/:instrumentId', isLoggedIn, async function (req, res, next) {
+router.get('/delete/:instrumentId', /*isLoggedIn,*/ async function (req, res, next) {
   const { instrumentId } = req.params;
   try {
     const instrument = await Instrument.findById(instrumentId);
-    await Season.deleteMany({ _id: { $in: show.seasons } });
-    await Review.deleteMany({ show: showId }) 
+    /*await Season.deleteMany({ _id: { $in: instrument.seasons } });
+    await Review.deleteMany({ instrument: instrumentId }) */
     await Instrument.deleteOne({ _id: instrumentId })
-    res.redirect(`/instrument`);
+    res.redirect(`/instruments`);
   } catch (error) {
     next(error)
   }
 });
-*/
+
 
 /* GET one instrument */
 /* ROUTE /instrument/:instrumentId */

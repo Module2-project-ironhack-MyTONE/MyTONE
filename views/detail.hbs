@@ -5,3 +5,7 @@
   <a href="/instruments/delete/{{instrument._id}}">Delete</a>
   <a href="/instruments/edit/{{instrument._id}}">Edit instrument</a>
 </div>
+
+ <form method="POST" action="/instruments/delete/{{_id}}">
+    <button type="submit">Delete</button>
+  </form>   Then the route should be router.post 
