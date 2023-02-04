@@ -1,11 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const Instrument = require('../models/Instrument');
 
 // @desc    App home page
 // @route   GET /
 // @access  Public
-router.get('/', (req, res, next) => {
-  res.render('index');
+router.get('/', async function (req, res, next) {
+  try {
+    const instruments = await Instrument.find({});
+    res.render('instrumentView', { instruments });
+  } catch (error) {
+    next(error)
+  }
 });
 
 module.exports = router;
