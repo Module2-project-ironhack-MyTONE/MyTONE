@@ -16,7 +16,7 @@ const Instrument = require('../models/Instrument');
 
 /* GET search results */
 /* ROUTE /instruments/search */
-router.get('/search', async function (req, res, next) {
+router.get('/search',isLoggedIn, async function (req, res, next) {
   const { brand } = req.query;
   try {
     const instrument = await Instrument.findOne({ brand: brand });
@@ -29,7 +29,7 @@ router.get('/search', async function (req, res, next) {
 
 /* Get edit form view */
 /*ROUTE /instruments/edit/:instrumentId */
-router.get('/edit/:instrumentId', /*isLoggedIn,*/ async function (req, res, next) {
+router.get('/edit/:instrumentId', isLoggedIn, async function (req, res, next) {
   const { instrumentId } = req.params;
   try {
     const instrument = await Instrument.findById(instrumentId);
@@ -41,7 +41,7 @@ router.get('/edit/:instrumentId', /*isLoggedIn,*/ async function (req, res, next
 
 /* POST get users instrument inputs */
 /* ROUTE /instrument/new */
-router.post('/edit/:instrumentId', /*isLoggedIn,*/ async function (req, res, next) {
+router.post('/edit/:instrumentId', isLoggedIn, async function (req, res, next) {
   const { brand, model, year, type, image, description } = req.body;
   const { instrumentId } = req.params;
   try {
@@ -56,11 +56,11 @@ router.post('/edit/:instrumentId', /*isLoggedIn,*/ async function (req, res, nex
 
 /* GET form view */
 /* ROUTE /instruments/new */
-router.get('/new', /*isLoggedIn,*/ function (req, res, next) {
+router.get('/new', isLoggedIn, function (req, res, next) {
     res.render('newInstrument');
   });
 
-  router.post('/new', /*isLoggedIn,*/ async function (req, res, next) {
+  router.post('/new', isLoggedIn, async function (req, res, next) {
     const { brand, model, year, type, madeIn, image, description } = req.body;
     try {
       const createdInstrument = await Instrument.create({ brand, model, year, type, madeIn, image, description });
@@ -74,7 +74,7 @@ router.get('/new', /*isLoggedIn,*/ function (req, res, next) {
 
 /* GET delete instrument */
 /* ROUTE /instruments/delete/:id */
-router.get('/delete/:instrumentId', /*isLoggedIn,*/ async function (req, res, next) {
+router.get('/delete/:instrumentId', isLoggedIn, async function (req, res, next) {
   const { instrumentId } = req.params;
   try {
     const instrument = await Instrument.findById(instrumentId);
@@ -90,7 +90,7 @@ router.get('/delete/:instrumentId', /*isLoggedIn,*/ async function (req, res, ne
 
 /* GET one instrument */
 /* ROUTE /instrument/:instrumentId */
-router.get('/:instrumentId', async function (req, res, next) {
+router.get('/:instrumentId', isLoggedIn, async function (req, res, next) {
   const { instrumentId } = req.params;
   const user = req.session.currentUser;
   try {
