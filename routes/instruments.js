@@ -18,9 +18,10 @@ const Instrument = require('../models/Instrument');
 /* ROUTE /instruments/search */
 router.get('/search',isLoggedIn, async function (req, res, next) {
   const { brand } = req.query;
+  const user = req.session.currentUser;
   try {
     const instrument = await Instrument.findOne({ brand: brand });
-    res.render('search', { query: brand, instrument: instrument });
+    res.render('search', { query: brand, instrument: instrument, user });
   } catch (error) {
     next(error)
   }
@@ -35,7 +36,7 @@ router.get('/edit/:instrumentId', isLoggedIn, async function (req, res, next) {
   try {
     const instrument = await Instrument.findById(instrumentId);
     
-    res.render('editInstrument',  { instrument });
+    res.render('editInstrument',  { instrument, user });
   } catch (error) {
     next(error)
   }
@@ -59,7 +60,8 @@ router.post('/edit/:instrumentId', isLoggedIn, async function (req, res, next) {
 /* GET form view */
 /* ROUTE /instruments/new */
 router.get('/new', isLoggedIn, function (req, res, next) {
-    res.render('newInstrument');
+  const user = req.session.currentUser;
+    res.render('newInstrument', {user});
   });
 
   router.post('/new', isLoggedIn, async function (req, res, next) {
@@ -100,7 +102,7 @@ router.get('/:instrumentId', isLoggedIn, async function (req, res, next) {
     const instrument = await Instrument.findById(instrumentId);
     const isOwner = user._id == instrument.owner ? true : false;
     /*const reviews = await Review.find({ instrument: instrumentId }); */
-    res.render('detail', { instrument , isOwner/*, reviews, , user */  });
+    res.render('detail', { instrument , isOwner, user/*, reviews, , user */  });
   } catch (error) {
     next(error)
   }
