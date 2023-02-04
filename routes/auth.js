@@ -91,6 +91,7 @@ router.post('/logout', (req, res, next) => {
     if (err) {
       next(err)
     } else {
+      res.clearCookie('MyTone') /* nombre de la aplicación */
       res.redirect('/auth/login');
     }
   });
