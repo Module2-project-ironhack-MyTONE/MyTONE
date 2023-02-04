@@ -11,18 +11,24 @@
 <body>
 
 
-    {{{ body }}}
 
-      <nav>
+
+  <nav>
     <ul>
+      {{#if user}}
       <li><a href="/">Home</a></li>
       <li><a href="/instruments/search">Search</a></li>
       <li><a href="/profile">Profile</a></li>
+      <li><a href="/instruments/new">New instrument</a></li>
+      <li><a href="/auth/logout">Log out</a></li>
+      {{else}}
+      <li><a href="/">Home</a></li>
       <li><a href="/auth/signup">Sign up</a></li>
       <li><a href="/auth/login">Log in</a></li>
-      <li><a href="/auth/logout">Log out</a></li>
-      <li><a href="/instruments/new">New instrument</a></li>
+      {{/if}}
     </ul>
   </nav>
+
+    {{{ body }}}
 </body>
 </html>
