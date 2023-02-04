@@ -2,10 +2,12 @@
   <h4>{{instrument.brand}} {{instrument.model}}</h4>
   <img width="150px" src={{instrument.image}} alt={{instrument.title}}/>
   <p>Description: {{instrument.description}} Year {{instrument.year}} Made in {{instrument.madeIn}}.</p>
+ {{#if isOwner}}
   <a href="/instruments/delete/{{instrument._id}}">Delete</a>
   <a href="/instruments/edit/{{instrument._id}}">Edit instrument</a>
+   {{/if}}
 </div>
 
- <form method="POST" action="/instruments/delete/{{_id}}">
+ {{!-- <form method="POST" action="/instruments/delete/{{_id}}">
     <button type="submit">Delete</button>
-  </form>   Then the route should be router.post 
+  </form> --}}

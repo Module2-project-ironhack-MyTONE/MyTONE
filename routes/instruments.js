@@ -31,9 +31,11 @@ router.get('/search',isLoggedIn, async function (req, res, next) {
 /*ROUTE /instruments/edit/:instrumentId */
 router.get('/edit/:instrumentId', isLoggedIn, async function (req, res, next) {
   const { instrumentId } = req.params;
+  const user = req.session.currentUser
   try {
     const instrument = await Instrument.findById(instrumentId);
-    res.render('editInstrument', instrument);
+    
+    res.render('editInstrument',  { instrument });
   } catch (error) {
     next(error)
   }
@@ -62,8 +64,9 @@ router.get('/new', isLoggedIn, function (req, res, next) {
 
   router.post('/new', isLoggedIn, async function (req, res, next) {
     const { brand, model, year, type, madeIn, image, description } = req.body;
+    const user = req.session.currentUser
     try {
-      const createdInstrument = await Instrument.create({ brand, model, year, type, madeIn, image, description });
+      const createdInstrument = await Instrument.create({ owner: user._id, brand, model, year, type, madeIn, image, description });
       res.redirect(`/instruments/${createdInstrument._id}`);
     } catch (error) {
       next(error)
@@ -81,7 +84,7 @@ router.get('/delete/:instrumentId', isLoggedIn, async function (req, res, next) 
     /*await Season.deleteMany({ _id: { $in: instrument.seasons } });
     await Review.deleteMany({ instrument: instrumentId }) */
     await Instrument.deleteOne({ _id: instrumentId })
-    res.redirect(`/instruments`);
+    res.redirect(`/`);
   } catch (error) {
     next(error)
   }
@@ -95,8 +98,9 @@ router.get('/:instrumentId', isLoggedIn, async function (req, res, next) {
   const user = req.session.currentUser;
   try {
     const instrument = await Instrument.findById(instrumentId);
+    const isOwner = user._id == instrument.owner ? true : false;
     /*const reviews = await Review.find({ instrument: instrumentId }); */
-    res.render('detail', { instrument /*, reviews, , user */  });
+    res.render('detail', { instrument , isOwner/*, reviews, , user */  });
   } catch (error) {
     next(error)
   }

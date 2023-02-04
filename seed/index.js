@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
 const Instrument = require('../models/Instrument');
-const MONGO_URL = 'mongodb+srv://admin:admin@cluster0.pjygiq8.mongodb.net/myToneDB';
 const instruments = require('../data/instruments');
+require('dotenv').config();
 
-mongoose.connect(MONGO_URL)
+mongoose.connect(process.env.MONGO_URL)
   .then(response => console.log(`Connected to the database ${response.connection.name}`))
+  .then(() => {
+    return Instrument.deleteMany({});
+  })
   .then(() => {
     return Instrument.create(instruments)
   })
