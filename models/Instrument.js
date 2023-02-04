@@ -18,7 +18,7 @@ const instrumentSchema = new Schema({
     },
     description: String,
     owner:{
-        type: [Schema.Types.ObjectId],
+        type: Schema.Types.ObjectId,
         ref: 'User'
     },
     image: {
