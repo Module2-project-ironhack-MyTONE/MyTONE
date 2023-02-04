@@ -3,6 +3,7 @@
 <form method="POST" action="/profile/edit">
   <label>New username:</label>
   <input type="text" name="username" required="true" value="{{username}}"/>
-  <input type="image" name="image" value="{{ image }}">
+  <label>User image</label>
+  <input required type="text" name="image" value="{{image}}"/>
   <button type="submit">Save changes</button>
 </form>

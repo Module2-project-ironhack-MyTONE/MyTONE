@@ -18,13 +18,13 @@ router.get('/profile/edit', isLoggedIn, function (req, res, next) {
 });
 
 router.post('/profile/edit', isLoggedIn, async function (req, res, next) {
-  const { username } = req.body;
+  const { username, image } = req.body;
   //if (!username) {
   //send error
   //}
   const user = req.session.currentUser;
   try {
-    const userInDB = await User.findByIdAndUpdate(user._id, { username }, { new: true });
+    const userInDB = await User.findByIdAndUpdate(user._id, { username, image }, { new: true });
     req.session.currentUser = userInDB;
     res.redirect('/profile');
   } catch (error) {
