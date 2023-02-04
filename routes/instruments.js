@@ -5,14 +5,14 @@ const Instrument = require('../models/Instrument');
 
 /* GET all instruments */
 /* ROUTE /instruments */
-router.get('/', async function (req, res, next) {
+/*router.get('/', async function (req, res, next) {
   try {
     const instruments = await Instrument.find({});
     res.render('instrumentView', { instruments });
   } catch (error) {
     next(error)
   }
-});
+});*/
 
 /* GET search results */
 /* ROUTE /instruments/search */
