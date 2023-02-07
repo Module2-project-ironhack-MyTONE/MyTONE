@@ -7,27 +7,27 @@
   <link href='/stylesheets/style.css' rel="stylesheet"/>
   <title>MyTone</title>
 </head>
-<header> Header </header>
+
 <body>
+  <header>
+    <h1>MyTone</h1>
+  </header>
 
-
-
-
-  <nav>
-    <ul>
-      {{#if user}}
-      <li><a href="/">Home</a></li>
-      <li><a href="/instruments/search">Search</a></li>
-      <li><a href="/profile">Profile</a></li>
-      <li><a href="/instruments/new">New instrument</a></li>
-      <li><a href="/auth/logout">Log out</a></li>
-      {{else}}
-      <li><a href="/">Home</a></li>
-      <li><a href="/auth/signup">Sign up</a></li>
-      <li><a href="/auth/login">Log in</a></li>
-      {{/if}}
-    </ul>
-  </nav>
+    <nav>
+      <ul>
+        {{#if user}}
+        <li><a href="/">Home</a></li>
+        <li><a href="/instruments/search">Search</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/instruments/new">New instrument</a></li>
+        <li><a href="/auth/logout">Log out</a></li>
+        {{else}}
+        <li><a href="/">Home</a></li>
+        <li><a href="/auth/signup">Sign up</a></li>
+        <li><a href="/auth/login">Log in</a></li>
+        {{/if}}
+      </ul>
+    </nav>
 
     {{{ body }}}
 </body>
