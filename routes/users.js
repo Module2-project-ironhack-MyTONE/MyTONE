@@ -9,13 +9,13 @@ const isLoggedIn = require('../middlewares');
 router.get('/profile', isLoggedIn, function (req, res, next) {
   const user = req.session.currentUser;
   console.log(user)
-  res.render('profile', user);
+  res.render('profile', {user});
 });
 
 /* GET users listing. */
 router.get('/profile/edit', isLoggedIn, function (req, res, next) {
   const user = req.session.currentUser;
-  res.render('profileEdit', user);
+  res.render('profileEdit', {user});
 });
 
 router.post('/profile/edit', isLoggedIn, async function (req, res, next) {
