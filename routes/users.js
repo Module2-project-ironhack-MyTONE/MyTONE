@@ -3,13 +3,18 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const Instrument = require('../models/Instrument');
 const isLoggedIn = require('../middlewares');
 
 /* GET users listing. */
-router.get('/profile', isLoggedIn, function (req, res, next) {
+router.get('/profile', isLoggedIn, async function (req, res, next) {
   const user = req.session.currentUser;
-  console.log(user)
-  res.render('profile', {user});
+  try {
+    const instruments = await Instrument.find({owner:user._id});
+    res.render('profile', {user, instruments});;
+  } catch (error) {
+    next(error)
+  }
 });
 
 /* GET users listing. */

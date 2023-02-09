@@ -2,7 +2,9 @@
 
 <p>Email: {{user.email}}</p>
 <img width="150px" src={{user.image}} alt={{user.title}}/>
-
+{{#each instruments}}
+  {{>instrumentCard this}}
+{{/each}}
 <a href="/profile/edit">Edit profile</a>
 <a href="/auth/logout">LOG OUT</a>
 	

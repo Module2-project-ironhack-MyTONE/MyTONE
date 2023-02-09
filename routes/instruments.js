@@ -5,14 +5,14 @@ const Instrument = require('../models/Instrument');
 
 /* GET all instruments */
 /* ROUTE /instruments */
-/*router.get('/', async function (req, res, next) {
-  try {
-    const instruments = await Instrument.find({});
-    res.render('instrumentView', { instruments });
-  } catch (error) {
-    next(error)
-  }
-});*/
+// router.get('/', async function (req, res, next) {
+//   try {
+//     const instruments = await Instrument.find({});
+//     res.render('instrumentView', { instruments });
+//   } catch (error) {
+//     next(error)
+//   }
+// });
 
 /* GET search results */
 /* ROUTE /instruments/search */
@@ -48,8 +48,8 @@ router.post('/edit/:instrumentId', isLoggedIn, async function (req, res, next) {
   const { brand, model, year, type, image, description } = req.body;
   const { instrumentId } = req.params;
   try {
-    const editedInstrument = await Instrument.findByIdAndUpdate(instrumentId, { brand, model, year, type, image, description }, { new: true });
-    res.redirect(`/instruments/${editedInstrument._id}`);
+    await Instrument.findByIdAndUpdate(instrumentId, { brand, model, year, type, image, description }, { new: true });
+    res.redirect(`/instruments/${instrumentId}`);
   } catch (error) {
     next(error)
   }
