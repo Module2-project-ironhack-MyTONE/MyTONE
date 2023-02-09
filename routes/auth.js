@@ -72,7 +72,7 @@ router.post('/login', async function (req, res, next) {
       const passwordMatch = await bcrypt.compare(password, userInDB.hashedPassword);
       if (passwordMatch) {
         req.session.currentUser = userInDB;
-        res.render('profile', userInDB);
+        res.render('profile', {user: userInDB, });
       } else {
         res.render('auth/login', { error: 'Unable to authenticate user' }); 
         console.log("password not match");
@@ -91,7 +91,7 @@ router.get('/logout', (req, res, next) => {
     if (err) {
       next(err)
     } else {
-      res.clearCookie('MyTone') /* nombre de la aplicación */
+      // res.clearCookie('MyTone') /* nombre de la aplicación */
       res.redirect('/auth/login');
     }
   });
