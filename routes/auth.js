@@ -43,7 +43,7 @@ router.post('/signup', async function (req, res, next) {
       // const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = await bcrypt.hash(password, salt);
       const user = await User.create({ username, email, hashedPassword });
-      res.render('profile', user);
+      res.render('profile', {user: userInDB, });
     }
   } catch (error) {
     next(error)
