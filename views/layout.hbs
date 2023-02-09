@@ -9,26 +9,60 @@
 </head>
 
 <body>
-  <header>
+  {{!-- <header>
     <h1>MyTone</h1>
-  </header>
-
-    <nav>
-      <ul>
-        {{#if user}}
-        <li><a href="/">Home</a></li>
-        <li><a href="/instruments/search">Search</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/instruments/new">New instrument</a></li>
-        <li><a href="/auth/logout">Log out</a></li>
-        {{else}}
-        <li><a href="/">Home</a></li>
-        <li><a href="/auth/signup">Sign up</a></li>
-        <li><a href="/auth/login">Log in</a></li>
-        {{/if}}
-      </ul>
-    </nav>
+  </header> --}}
+<div class="phone">
+	<header class="header">
+		<a href="/">
+    <div class="header-logo">
+			<div>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+    </a>
+		<div class="header-title">
+			MyTONE
+		</div>
+		<div class="header-buttons">
+			<a href="/profile">
+			<button class="avatar">
+      <img src={{user.image}} alt={{user.title}} />
+			</button>
+    </a>
+		</div>
+	</header>
+ 
+    
 
     {{{ body }}}
+
+    <footer class="menu">
+		<div class="menu-inner">
+      {{#if user}}
+			
+			<a href="/instruments/search" class="menu-item">
+				<img src="/img/Icons/search.png"></img>
+			</a>
+			
+			<a href="/instruments/new" class="menu-item">
+				<img src="/img/Icons/guitar.png">
+			</a>
+      
+      {{else}}
+      
+      <a href="/auth/signup" class="menu-item">
+				SIGN UP
+			</a>
+      <a href="/auth/login" class="menu-item">
+				LOG IN
+			</a>
+       {{/if}}
+		</div>
+	</footer>
+   </div>
 </body>
 </html>

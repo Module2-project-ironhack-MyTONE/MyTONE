@@ -1,58 +1,192 @@
-/* Base */
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
 }
 
 :root {
-  --main-gap: 20px; /*Interation 2 */
-  font-size: 16px;
-  --br: 15px;
-  --primary-blue: rgb(201 226 230);
-  --darker-blue: #2e839f;
-  --light-orange: #e5c5ac;
-  --basic-white: #fff;
-}
+	--c-gray-100: #fbf8f2;
+	--c-gray-200: #fcfdfe;
+	--c-gray-300: #e9ebec;
+	--c-gray-400: #e3e4ea;
+	--c-gray-500: #5f5f5f;
+	--c-gray-900: #1d1d1d;
+	--c-blue-300: #a8dee2;
+	--c-blue-500: #2ab3c0;
+	--c-green-500: #80b895;
+	--c-green-300: #bad5ca;
+	--c-red-500: #ea605e;
+	--c-yellow-300: #f8e0b1;
+	--c-yellow-500: #f9bc73;
 
+	--rotation: -3deg;
+}
 
 body {
-  padding: 0;
-  margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  
+	font-family: "Urbanist", sans-serif;
+	line-height: 1.5;
+	min-height: 100vh;
+	padding-top: 5vw;
+	padding-bottom: 5vw;
+	background-color: var(--c-gray-400);
 }
 
-/* Container */
-
-div {
-  padding: 20px;
+img {
+	display: block;
+	max-width: 100%;
 }
 
-header {
-  padding: 20px 20px 0 20px;
-  color: var(--darker-blue);
+input,
+button {
+	font: inherit;
 }
 
-/* Navbar */
-
-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: var(--basic-white);
-  padding: 20px;
-  border-top: 1px solid var(--primary-blue);
+.phone {
+	width: 460px;
+	border-radius: 25px;
+	overflow: hidden;
+	padding: 2rem;
+	box-shadow: 0 0 0 10px var(--c-gray-300), 0 0 0 11px var(--c-gray-200);
+	background-color: #fff;
+	position: relative;
+	z-index: 1;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-nav ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-evenly;
+.header {
+	display: grid;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1.5rem;
+	grid-template-columns: 1fr 2fr 1fr;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: var(--darker-blue);
+.header-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 48px;
+	height: 48px;
+	background-color: var(--c-blue-300);
+	border: 2px solid var(--c-gray-900);
+	border-radius: 15px;
 }
+	.header-logo div{
+		display: flex;
+		flex-wrap: wrap;
+		width: 24px;
+		height: 24px;
+	}
+	.header-logo span {
+		display: block;
+		width: 12px;
+		height: 12px;
+		border: 2px solid var(--c-gray-900);
+		background-color: var(--c-yellow-500);
+		border-radius: 50%;
+	}
+
+
+.header-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header-buttons {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.avatar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	border-radius: 15px;
+	overflow: hidden;
+	border: 3px solid #fff;
+	box-shadow: 0 8px 10px -4px rgba(#000, 0.2);
+	transform-origin: center center;
+	transition: 0.15s ease;
+	cursor: pointer;
+}
+.avatar:hover,
+.avatar:focus {
+		transform: translatey(-4px);
+		box-shadow: 0 12px 14px -4px rgba(#000, 0.3);
+	}
+
+
+.title {
+	margin-top: 1rem;
+}
+	.title h1 {
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+
+	.title p {
+		font-size: 1rem;
+		color: var(--c-gray-500);
+		margin-top: 0.375em;
+	}
+
+
+
+.menu-inner {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: center;
+	border-radius: 15px;
+	border: 2px solid var(--c-gray-900);
+	justify-content: space-between;
+	padding: .75rem;
+	background-color: var(--c-blue-500);
+	position: relative;
+}
+.menu-inner:after {
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: -1;
+		width: 95%;
+		height: 100%;
+		bottom: -9px;
+		left: calc(50% - 47.5%);
+		border-radius: 20px;
+		border: 2px solid var(--c-gray-900);
+		background-color: var(--c-gray-100);
+	}
+
+
+.menu-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	color: #fff;
+	width: 80px;
+	border-radius: 15px;
+	padding-top: 0.375rem;
+	padding-bottom: 0.375rem;
+	text-decoration: none;
+	background-color: transparent;
+	border: 2px solid transparent;
+}
+	.menu-item:hover,
+	.menu-item:focus, .menu-item.active {
+		border-color: var(--c-gray-900);
+		background-color: var(--c-yellow-500);
+		color: var(--c-gray-900);
+	}
+
+
+
