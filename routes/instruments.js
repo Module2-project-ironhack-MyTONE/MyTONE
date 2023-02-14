@@ -3,30 +3,28 @@ const router = express.Router();
 const Instrument = require('../models/Instrument');
 
 
-/* GET all instruments */
-/* ROUTE /instruments */
-// router.get('/', async function (req, res, next) {
-//   try {
-//     const instruments = await Instrument.find({});
-//     res.render('instrumentView', { instruments });
-//   } catch (error) {
-//     next(error)
-//   }
-// });
-
 /* GET search results */
 /* ROUTE /instruments/search */
 router.get('/search',isLoggedIn, async function (req, res, next) {
-  const { brand } = req.query;
+  const { searchBrand } = req.query;
   const user = req.session.currentUser;
-  try {
-    const instrument = await Instrument.findOne({ brand: brand });
-    res.render('search', { query: brand, instrument: instrument, user });
+  // let instruments
+  // if(searchBrand === undefined){ 
+  //   instruments = [];
+  //   res.render('search', { query: searchBrand, instruments, user });
+  // } else {
+    try {
+      instruments = await Instrument.find({ 
+        $or: [
+        { brand: { $regex: new RegExp(searchBrand, 'i') } },
+        ] 
+      });
+    res.render('search', { query: searchBrand, instruments, user });
   } catch (error) {
     next(error)
   }
-});
-
+}
+);
 
 /* Get edit form view */
 /*ROUTE /instruments/edit/:instrumentId */
@@ -55,8 +53,6 @@ router.post('/edit/:instrumentId', isLoggedIn, async function (req, res, next) {
   }
 });
 
-
-
 /* GET form view */
 /* ROUTE /instruments/new */
 router.get('/new', isLoggedIn, function (req, res, next) {
@@ -74,8 +70,6 @@ router.get('/new', isLoggedIn, function (req, res, next) {
       next(error)
     }
   });
-
-
 
 /* GET delete instrument */
 /* ROUTE /instruments/delete/:id */
@@ -108,6 +102,6 @@ router.get('/:instrumentId', isLoggedIn, async function (req, res, next) {
   }
 });
 
-  
+
 
 module.exports = router;
