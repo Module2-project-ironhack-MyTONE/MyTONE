@@ -1,10 +1,10 @@
-<div>
-  <h4>{{instrument.brand}} {{instrument.model}}</h4>
-  <img width="150px" src={{instrument.image}} alt={{instrument.title}}/>
+<div class="form-box">
+  <h2>{{instrument.brand}} {{instrument.model}}</h4>
+  <img class="guitar-img" width="150px" src={{instrument.image}} alt={{instrument.title}}/>
   <p>Description: {{instrument.description}} Year {{instrument.year}} Made in {{instrument.madeIn}}.</p>
  {{#if isOwner}}
-  <a href="/instruments/delete/{{instrument._id}}">Delete</a>
-  <a href="/instruments/edit/{{instrument._id}}">Edit instrument</a>
+  <a id="submit-btn" href="/instruments/delete/{{instrument._id}}">Delete</a>
+  <a id="submit-btn" href="/instruments/edit/{{instrument._id}}">Edit instrument</a>
    {{/if}}
 </div>
 

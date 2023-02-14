@@ -1,7 +1,7 @@
 <h2>Login</h2>
 
-<div>
-  <form action="/auth/login" method="POST">
+<div class="form-box">
+    <form action="/auth/login" method="POST">
  
     <label>Email</label>
     <input type="email" name="email" placeholder="alma@doe.com" />
@@ -13,7 +13,8 @@
     <p style="color:rgb(218, 90, 90)">{{ error }}</p>
     {{/if}}
     
-    <button type="submit">Login</button>
+    <button id="submit-btn" type="submit">Login</button>
 
   </form>
+ 
 </div>

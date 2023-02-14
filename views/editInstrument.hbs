@@ -1,5 +1,6 @@
 <h2>Editing instrument {{instrument.brand}}{{instrument.model}}</h2>
 
+<div class="form-box">
 <form method="POST" action="/instruments/edit/{{instrument._id}}">
   <label>Instrument</label>
   <label>Brand</label>
@@ -16,5 +17,6 @@
   <input  type="text" name="image" value="{{instrument.image}}"/>
   <label>Description</label>
   <textarea  name="description">{{instrument.description}}</textarea>
-  <button type="submit">Save changes</button>
+  <button id="submit-btn" type="submit">Save changes</button>
 </form>
+</div>

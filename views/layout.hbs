@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,47 +9,43 @@
 </head>
 
 <body>
-  {{!-- <header>
-    <h1>MyTone</h1>
-  </header> --}}
-<div class="phone">
-	<header class="header">
+ 	<header class="header">
 		<a href="/">
     <div class="header-logo">
 			<div>
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
+				<img src="/img/knob.png">
 			</div>
 		</div>
-    </a>
+    	</a>
 		<div class="header-title">
-			MyTONE
+			<div>
+				<img src="/img/logoTypo.png">
+			</div>
 		</div>
 		<div class="header-buttons">
 			<a href="/profile">
 			<button class="avatar">
-      <img src={{user.image}} alt={{user.title}} />
+      <img  src={{user.image}} alt={{user.title}} />
 			</button>
     </a>
 		</div>
 	</header>
-
+	
     
-
+	<div class="scroll-zone">
     {{{ body }}}
+	</div>
 
     <footer class="menu">
 		<div class="menu-inner">
       {{#if user}}
 			
 			<a href="/instruments/search" class="menu-item">
-				<img src="/img/Icons/search.png"></img>
+				<img height= "70px" src="/img/Icons/searchWt.png"></img>
 			</a>
 			
 			<a href="/instruments/new" class="menu-item">
-				<img src="/img/Icons/guitar.png">
+				<img height= "75px"src="/img/Icons/guitarWt.png">
 			</a>
       
       {{else}}
@@ -63,6 +59,6 @@
        {{/if}}
 		</div>
 	</footer>
-   </div>
+   
 </body>
 </html>
