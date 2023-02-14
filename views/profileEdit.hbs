@@ -1,9 +1,12 @@
 <h1>Editing {{user.username}}'s profile</h1>
 
+
+<div class="form-box">
 <form method="POST" action="/profile/edit">
   <label>New username:</label>
   <input type="text" name="username" required="true" value="{{username}}"/>
   <label>User image</label>
   <input required type="text" name="image" value="{{image}}"/>
-  <button type="submit">Save changes</button>
+  <button id="submit-btn" type="submit">Save changes</button>
 </form>
+</div>

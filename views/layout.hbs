@@ -9,11 +9,7 @@
 </head>
 
 <body>
-  {{!-- <header>
-    <h1>MyTone</h1>
-  </header> --}}
-
-	<header class="header">
+ 	<header class="header">
 		<a href="/">
     <div class="header-logo">
 			<div>
@@ -37,19 +33,20 @@
 	</header>
 	
     
-
+	<div class="scroll-zone">
     {{{ body }}}
+	</div>
 
     <footer class="menu">
 		<div class="menu-inner">
       {{#if user}}
 			
 			<a href="/instruments/search" class="menu-item">
-				<img src="/img/Icons/search.png"></img>
+				<img height= "75px" src="/img/Icons/search.png"></img>
 			</a>
 			
 			<a href="/instruments/new" class="menu-item">
-				<img src="/img/Icons/guitar.png">
+				<img height= "75px"src="/img/Icons/guitar.png">
 			</a>
       
       {{else}}

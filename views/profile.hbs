@@ -1,10 +1,14 @@
-<h1>{{user.username}}'s profile</h1>
-
+<h2>{{user.username}}'s profile</h2>
+<div class="form-box">
 <p>Email: {{user.email}}</p>
-<img width="150px" src={{user.image}} alt={{user.title}}/>
+<img class="user-img" width="150px" src={{user.image}} alt={{user.title}}/>
+<a id="submit-btn" href="/profile/edit">Edit profile</a>
+<a id="submit-btn" href="/auth/logout">LOG OUT</a>
+</div>
+<h2>{{user.username}}'s Instruments</h2>
+
 {{#each instruments}}
   {{>instrumentCard this}}
 {{/each}}
-<a href="/profile/edit">Edit profile</a>
-<a href="/auth/logout">LOG OUT</a>
+
 	
