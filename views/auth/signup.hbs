@@ -1,6 +1,6 @@
 <h1>¡Create a new account!</h1>
 
-<div id="form">
+<div class="form-box">
   <form action="/auth/signup" method="POST">
  
     <label>Username</label>
@@ -16,7 +16,7 @@
       <p style="color: red;">{{error}}</p>
       {{/if}}
  
-    <button type="submit">Create account</button>
+    <button id="submit-btn" type="submit">Create account</button>
  
   </form>
 </div>
