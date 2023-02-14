@@ -22,13 +22,15 @@
 				<img src="/img/logoTypo.png">
 			</div>
 		</div>
+	{{#if user}}
 		<div class="header-buttons">
 			<a href="/profile">
-			<button class="avatar">
-      <img  src={{user.image}} alt={{user.title}} />
-			</button>
-    </a>
+				<button class="avatar">
+      				<img  src={{user.image}} alt={{user.title}} />
+				</button>
+    		</a>
 		</div>
+	{{/if}}
 	</header>
 	
     
