@@ -44,6 +44,10 @@ button {
 	margin-bottom: 2rem;
 }
 
+.guitar-img{
+	width: 100%;
+}
+
 body {
 	margin-top: 80px;
 	font-family: "Urbanist", sans-serif;
