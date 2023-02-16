@@ -43,37 +43,30 @@ Sign Up
 
 <img src='docs/Readme/signUp.jpg' width="120" height="250" />
 
----
-
 Home Logged
 
 <img src='docs/Readme/homeLogged.jpg' width="120" height="250" />
 
----
 
 New Instrument
 
 <img src='docs/Readme/newInstrument.png' width="120" height="250" />
 
----
 
 Instrument Card
 
 <img src='docs/Readme/instrumentCard.jpg' width="120" height="250" />
 
----
 
 Profile
 
 <img src='docs/Readme/Profile.jpg' width="120" height="250" />
 
----
 
 Search
 
 <img src='docs/Readme/search.jpg' width="120" height="250" />
 
----
 
 ## User stories (MVP)
 
@@ -86,6 +79,7 @@ What can the user do with the app?
 - User can edit Instrument (only his instruments)
 - User can delete Instrument (only his instruments)
 - User can search instruments by brand
+- User can see his own instruments together
 
 ## User stories (Backlog)
 
