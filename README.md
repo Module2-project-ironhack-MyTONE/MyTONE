@@ -33,23 +33,44 @@ To work on the project and have it listen for changes:
 ```bash
 npm run dev
 ```
-```
+
 For a proper view, use Google Inspection and add Iphone format.
-```
+
 ---
 
 ## Wireframes
 Sign Up
+
 <img src='docs/Readme/signUp.jpg' width="120" height="250" />
+
+---
+
 Home Logged
+
 <img src='docs/Readme/homeLogged.jpg' width="120" height="250" />
+
+---
+
 New Instrument
-<img src='docs/Readme/newInstrument.jpg' width="120" height="250" />
+
+<img src='docs/Readme/newInstrument.png' width="120" height="250" />
+
+---
+
 Instrument Card
+
 <img src='docs/Readme/instrumentCard.jpg' width="120" height="250" />
+
+---
+
 Profile
+
 <img src='docs/Readme/Profile.jpg' width="120" height="250" />
+
+---
+
 Search
+
 <img src='docs/Readme/search.jpg' width="120" height="250" />
 
 ---
