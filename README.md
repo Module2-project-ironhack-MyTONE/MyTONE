@@ -16,8 +16,8 @@ In a near future, you will can interact with other users by sending "like" to th
 When cloning the project, change the <code>sample.env</code> for an <code>.env</code> with the values you consider:
 ```js
 PORT=3000
-MONGO_URL='mongodb://localhost:27017/app-name'
-SESSION_SECRET='SecretOfYourOwnChoosing'
+MONGO_URL='mongodb+srv://admin:admin@cluster0.pjygiq8.mongodb.net/myToneDB'
+SESSION_SECRET='Ir0nH4cK'
 NODE_ENV='development'
 ```
 Then, run:
@@ -184,10 +184,10 @@ const instrumentSchema = new Schema(
 
 ## Useful links
 
-- [Github Repo]()
-- [Trello kanban]()
-- [Deployed version]()
-- [Presentation slides](https://www.slides.com)
+- [Github Repo](https://github.com/Module2-project-ironhack-MyTONE/MyTONE)
+- [Trello kanban](https://trello.com/b/JqeQghJo/mytone)
+- [Deployed version](https://mytone.fly.dev/)
+- [Presentation slides](https://slides.com/d/cFEMWTM/live)
 
 
 
