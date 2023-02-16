@@ -2,12 +2,8 @@
   <h2>{{instrument.brand}} {{instrument.model}}</h2>
   <img class="guitar-img" width="150px" src={{instrument.image}} alt={{instrument.title}}/>
   <p>Description: {{instrument.description}} Year {{instrument.year}} Made in {{instrument.madeIn}}.</p>
- {{#if isOwner}}
-  <a id="submit-btn" href="/instruments/delete/{{instrument._id}}">Delete</a>
-  <a id="submit-btn" href="/instruments/edit/{{instrument._id}}">Edit instrument</a>
-   {{/if}}
+    {{#if isOwner}}
+      <a id="submit-btn" href="/instruments/delete/{{instrument._id}}">Delete</a>
+      <a id="submit-btn" href="/instruments/edit/{{instrument._id}}">Edit instrument</a>
+    {{/if}}
 </div>
-
- {{!-- <form method="POST" action="/instruments/delete/{{_id}}">
-    <button type="submit">Delete</button>
-  </form> --}}

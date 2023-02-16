@@ -2,19 +2,13 @@
 
 <div class="form-box">
     <form action="/auth/login" method="POST">
- 
-    <label>Email</label>
-    <input type="email" name="email" placeholder="alma@doe.com" />
-    
-    <label>Password</label>
-    <input type="password" name="password" placeholder="********" />
-     
-    {{#if error}}
-    <p style="color:rgb(218, 90, 90)">{{ error }}</p>
-    {{/if}}
-    
-    <button id="submit-btn" type="submit">Login</button>
-
-  </form>
- 
+      <label>Email</label>
+      <input type="email" name="email" placeholder="alma@doe.com" />
+      <label>Password</label>
+      <input type="password" name="password" placeholder="********" />
+        {{#if error}}
+          <p style="color:rgb(218, 90, 90)">{{ error }}</p>
+        {{/if}}
+      <button id="submit-btn" type="submit">Login</button>
+    </form>
 </div>
