@@ -14,7 +14,7 @@ const instrumentSchema = new Schema({
     madeIn: String,
     type: {
         type: String,
-        enum: [],
+        
     },
     description: String,
     owner:{
