@@ -2,21 +2,15 @@
 
 <div class="form-box">
   <form action="/auth/signup" method="POST">
- 
     <label>Username</label>
-      <input type="text" name="username" placeholder="Alma.M" />
- 
+    <input type="text" name="username" placeholder="Alma.M" />
     <label>Email</label>
-      <input type="email" name="email" placeholder="Alma.M@doe.com" />
-    
+    <input type="email" name="email" placeholder="Alma.M@doe.com" />
     <label>Password</label>
-      <input type="password" name="password" placeholder="********" />
-
+    <input type="password" name="password" placeholder="********" />
       {{#if error}}
-      <p style="color: red;">{{error}}</p>
+        <p style="color: red;">{{error}}</p>
       {{/if}}
- 
     <button id="submit-btn" type="submit">Create account</button>
- 
   </form>
 </div>

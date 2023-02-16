@@ -8,11 +8,6 @@ const Instrument = require('../models/Instrument');
 router.get('/search',isLoggedIn, async function (req, res, next) {
   const { searchBrand } = req.query;
   const user = req.session.currentUser;
-  // let instruments
-  // if(searchBrand === undefined){ 
-  //   instruments = [];
-  //   res.render('search', { query: searchBrand, instruments, user });
-  // } else {
     try {
       instruments = await Instrument.find({ 
         $or: [
@@ -23,8 +18,7 @@ router.get('/search',isLoggedIn, async function (req, res, next) {
   } catch (error) {
     next(error)
   }
-}
-);
+});
 
 /* Get edit form view */
 /*ROUTE /instruments/edit/:instrumentId */
@@ -33,7 +27,6 @@ router.get('/edit/:instrumentId', isLoggedIn, async function (req, res, next) {
   const user = req.session.currentUser
   try {
     const instrument = await Instrument.findById(instrumentId);
-    
     res.render('editInstrument',  { instrument, user });
   } catch (error) {
     next(error)
@@ -60,6 +53,8 @@ router.get('/new', isLoggedIn, function (req, res, next) {
     res.render('newInstrument', {user});
   });
 
+/* POST form view */
+/* ROUTE /instruments/new */
   router.post('/new', isLoggedIn, async function (req, res, next) {
     const { brand, model, year, type, madeIn, image, description } = req.body;
     const user = req.session.currentUser
@@ -77,8 +72,6 @@ router.get('/delete/:instrumentId', isLoggedIn, async function (req, res, next) 
   const { instrumentId } = req.params;
   try {
     const instrument = await Instrument.findById(instrumentId);
-    /*await Season.deleteMany({ _id: { $in: instrument.seasons } });
-    await Review.deleteMany({ instrument: instrumentId }) */
     await Instrument.deleteOne({ _id: instrumentId })
     res.redirect(`/`);
   } catch (error) {
@@ -95,13 +88,10 @@ router.get('/:instrumentId', isLoggedIn, async function (req, res, next) {
   try {
     const instrument = await Instrument.findById(instrumentId);
     const isOwner = user._id == instrument.owner ? true : false;
-    /*const reviews = await Review.find({ instrument: instrumentId }); */
-    res.render('detail', { instrument , isOwner, user/*, reviews, , user */  });
+    res.render('detail', { instrument , isOwner, user });
   } catch (error) {
     next(error)
   }
 });
-
-
 
 module.exports = router;

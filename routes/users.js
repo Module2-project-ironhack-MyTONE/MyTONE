@@ -1,5 +1,3 @@
-/* copia del código de Ale */
-
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
@@ -23,11 +21,9 @@ router.get('/profile/edit', isLoggedIn, function (req, res, next) {
   res.render('profileEdit', {user});
 });
 
+/* POST users listing. */
 router.post('/profile/edit', isLoggedIn, async function (req, res, next) {
   const { username, image } = req.body;
-  //if (!username) {
-  //send error
-  //}
   const user = req.session.currentUser;
   try {
     const userInDB = await User.findByIdAndUpdate(user._id, { username, image }, { new: true });
@@ -37,7 +33,5 @@ router.post('/profile/edit', isLoggedIn, async function (req, res, next) {
     next(error);
   }
 });
-
-
 
 module.exports = router;

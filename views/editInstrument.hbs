@@ -1,22 +1,22 @@
 <h2>Editing instrument {{instrument.brand}}{{instrument.model}}</h2>
 
 <div class="form-box">
-<form method="POST" action="/instruments/edit/{{instrument._id}}">
-  <label>Instrument</label>
-  <label>Brand</label>
-  <input type="text" name="brand" value="{{instrument.brand}}"/>
-  <label>Model</label>
-  <input type="text" name="model" value="{{instrument.model}}"/>
-  <label>Year</label>
-  <input  type="number" name="year" value="{{instrument.year}}"/>
-  <label>Made in...</label>
-  <input  type="text" name="madeIn" value="{{instrument.madeIn}}"/>
-  <label>Type</label>
-  <input  type="text" name="type" value="{{instrument.type}}"/>
-  <label>Guitar picture</label>
-  <input  type="text" name="image" value="{{instrument.image}}"/>
-  <label>Description</label>
-  <textarea  name="description">{{instrument.description}}</textarea>
-  <button id="submit-btn" type="submit">Save changes</button>
-</form>
+  <form method="POST" action="/instruments/edit/{{instrument._id}}">
+    <label>Instrument</label>
+    <label>Brand</label>
+    <input type="text" name="brand" value="{{instrument.brand}}"/>
+    <label>Model</label>
+    <input type="text" name="model" value="{{instrument.model}}"/>
+    <label>Year</label>
+    <input  type="number" name="year" value="{{instrument.year}}"/>
+    <label>Made in...</label>
+    <input  type="text" name="madeIn" value="{{instrument.madeIn}}"/>
+    <label>Type</label>
+    <input  type="text" name="type" value="{{instrument.type}}"/>
+    <label>Guitar picture</label>
+    <input  type="text" name="image" value="{{instrument.image}}"/>
+    <label>Description</label>
+    <textarea  name="description">{{instrument.description}}</textarea>
+    <button id="submit-btn" type="submit">Save changes</button>
+  </form>
 </div>

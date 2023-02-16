@@ -9,14 +9,14 @@ const saltRounds = 10;
 // @access  Public
 router.get('/signup', async (req, res, next) => {
   res.render('auth/signup');
-})
+});
 
 // @desc    Displays form view to log in
 // @route   GET /auth/login
 // @access  Public
 router.get('/login', async (req, res, next) => {
   res.render('auth/login');
-})
+});
 
 // @desc    Sends user auth data to database to create a new user
 // @route   POST /auth/signup
@@ -40,7 +40,6 @@ router.post('/signup', async function (req, res, next) {
       return;
     } else {
       const salt = await bcrypt.genSalt(saltRounds);
-      // const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = await bcrypt.hash(password, salt);
       const user = await User.create({ username, email, hashedPassword });
       res.redirect('/auth/login');
@@ -49,6 +48,7 @@ router.post('/signup', async function (req, res, next) {
     next(error)
   }
 });
+
 // @desc    Sends user auth data to database to authenticate user
 // @route   POST /auth/login
 // @access  Public
@@ -65,17 +65,12 @@ router.post('/login', async function (req, res, next) {
       res.render('auth/login', { error: `There are no users by ${email}` });
       return;
     } else {
-      // const userForCookie = {
-      //   username: userInDB.username,
-      //   email: userInDB.email
-      // }
       const passwordMatch = await bcrypt.compare(password, userInDB.hashedPassword);
       if (passwordMatch) {
         req.session.currentUser = userInDB;
         res.render('profile', {user: userInDB, });
       } else {
         res.render('auth/login', { error: 'Unable to authenticate user' }); 
-        console.log("password not match");
         return;
       }
     }
@@ -83,18 +78,18 @@ router.post('/login', async function (req, res, next) {
     next(error)
   }
 });
+
 // @desc    Destroy user session and log out
-// @route   POST /auth/logout
+// @route   GET /auth/logout
 // @access  Private 
 router.get('/logout', (req, res, next) => {
   req.session.destroy((err) => {
     if (err) {
       next(err)
     } else {
-      // res.clearCookie('MyTone') /* nombre de la aplicación */
       res.redirect('/auth/login');
     }
-  });
-})
+  })
+});
 
 module.exports = router;

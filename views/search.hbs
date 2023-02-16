@@ -1,18 +1,17 @@
 <h2>Search guitar: {{query}}</h2>
 
 <div class="form-box">
-<form method="GET" action="/instruments/search"> 
-  {{!-- <label>Search</label>
-  <input type="text" name="brand"/> --}}
-  <label>Brand:</label>
-  <input type="text" id="brand" name="searchBrand">
-  <button id="submit-btn" type="submit">Search</button>
-</form>
+  <form method="GET" action="/instruments/search"> 
+    <label>Brand:</label>
+    <input type="text" id="brand" name="searchBrand">
+    <button id="submit-btn" type="submit">Search</button>
+  </form>
 </div>
+
 {{#if instruments}}
-{{#each instruments}}
-  {{>instrumentCard this}}
-{{/each}}
+  {{#each instruments}}
+    {{>instrumentCard this}}
+  {{/each}}
   {{else}}
-  <p>Sorry, no instruments found by {{query}}. Try again: <a href="/instruments">go back to instruments</a></p>
+    <p>Sorry, no instruments found by {{query}}. Try again: <a href="/instruments">go back to instruments</a></p>
 {{/if}}
